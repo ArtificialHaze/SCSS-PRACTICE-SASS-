@@ -1,0 +1,50 @@
+@use "./mixins";
+@use "./functions";
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: functions.rem(40);
+  width: min(100% - 40px, 1000px);
+  margin-inline: auto;
+  font-size: 2em;
+
+  @include mixins.breakpoint(large) {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  &__main,
+  &__aside {
+    padding: functions.rem(40);
+  }
+
+  &__main {
+    background-color: hsl(240, 57%, 27%);
+
+    @include mixins.breakpoint(medium) {
+      background-color: hsl(120, 77%, 24%);
+    }
+
+    @include mixins.breakpoint(large) {
+      background-color: hsl(39, 86%, 39%);
+    }
+  }
+
+  &__aside {
+    background-color: hsl(300, 50%, 25%);
+    text-align: center;
+    .grid__widget--green {
+      background-color: green;
+    }
+
+    @include mixins.breakpoint-down(medium) {
+      text-align: left;
+    }
+
+    @include mixins.breakpoint-down(small) {
+      text-align: right;
+    }
+  }
+}

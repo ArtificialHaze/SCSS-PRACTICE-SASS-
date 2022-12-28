@@ -1,0 +1,37 @@
+@use "./mixins";
+@use "functions";
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: 1.15;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(
+    functions.rem(28),
+    functions.rem(16) + 2vw,
+    functions.rem(40)
+  );
+}
+
+h2 {
+  font-size: clamp(
+    functions.rem(22),
+    functions.rem(14) + 2vw,
+    functions.rem(36)
+  );
+}
+
+p {
+  margin-top: 0;
+  font-size: functions.rem(16);
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
